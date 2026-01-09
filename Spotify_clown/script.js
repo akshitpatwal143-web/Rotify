@@ -74,7 +74,7 @@ const playMusic=(track,pause=false)=>{
 
 }
 async function displayAlbums(){
-    let a = await fetch(`http://192.168.1.238:3000/songs/`)
+    let a = await fetch(`/songs/`)
     let response = await a.text();
 
     
@@ -87,7 +87,7 @@ async function displayAlbums(){
             
             let folder=(e.href.split("/").slice(-2)[0])
             let cardContainer=document.querySelector(".cardContainer")
-            let a = await fetch(`http://192.168.1.238:3000/songs/${folder}/info.json`)
+            let a = await fetch(`/songs/${folder}/info.json`)
             let response = await a.json();
             console.log(response);
             cardContainer.innerHTML=cardContainer.innerHTML + `<div class="card" data-folder=${folder}>
